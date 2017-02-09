@@ -1,0 +1,29 @@
+{
+  "name": "connect4",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "browserify": "^14.0.0",
+    "express": "^4.14.1",
+    "uglifyjs": "^2.4.10"
+  },
+  "devDependencies": {
+    "browserify": "^14.0.0",
+    "uglifyjs": "^2.4.10"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "bundle": "browserify js/main.js -o js/new.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adrianmelo93/connect4.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adrianmelo93/connect4/issues"
+  },
+  "homepage": "https://github.com/adrianmelo93/connect4#readme"
+}

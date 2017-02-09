@@ -1,3 +1,37 @@
+(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+
+
+module.exports = function createTable(side){
+  var tbody = document.getElementById("matrix");
+  tbody.innerHTML = '';
+  for (var row = 0; row < side; row++){
+    var tr = document.createElement("tr");
+    for (var col = 0; col < side; col++){
+      tr.innerHTML += `<td id='x${row}x${col}'>
+                        <div class='dot'></div>
+                      </td>`
+    }
+    tbody.appendChild(tr);
+  }
+}
+
+},{}],2:[function(require,module,exports){
+
+  module.exports = function isLegitEdge(prev, current){
+  var thisID = current.id.split("x");
+  var thisRow = Number(thisID[1]);
+  var thisCol = Number(thisID[2]);
+  var activeID = prev.id.split("x");
+  var activeRow = Number(activeID[1]);
+  var activeCol = Number(activeID[2]);
+  if (thisRow==activeRow && thisCol==activeCol-1) return "right";
+  if (thisRow==activeRow && thisCol==activeCol+1) return "left";
+  if (thisCol==activeCol && thisRow==activeRow-1) return "down";
+  if (thisCol==activeCol && thisRow==activeRow+1) return "up";
+  return false;
+}
+
+},{}],3:[function(require,module,exports){
 var turn = 0;
 var edges = [];
 var redScore = 0;
@@ -154,3 +188,5 @@ window.onload = function(){
     e.onclick = handleClick;
   });
 }
+
+},{"./creat-table.js":1,"./legit-edge.js":2}]},{},[3]);
